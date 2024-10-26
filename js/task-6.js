@@ -19,14 +19,14 @@ function createEl() {
 }
 function createBoxes(amount) {
   div.innerHTML = '';
+  let string = '';
   for (let i = 0; i < amount; i++) {
-    const divEl = document.createElement('div');
-    divEl.style.backgroundColor = getRandomHexColor();
+    const backgroundColor = getRandomHexColor();
     const size = 30 + i * 10;
-    divEl.style.width = `${size}px`;
-    divEl.style.height = `${size}px`;
-    div.append(divEl);
+    string += `<div style="width: ${size}px; height: ${size}px; background-color: ${backgroundColor};"></div>`;
   }
+
+  div.insertAdjacentHTML('beforeend', string);
 }
 const btnDestroyEl = btnDestroy.addEventListener('click', destroyEl);
 function destroyEl() {
